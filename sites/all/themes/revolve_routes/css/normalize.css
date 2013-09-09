@@ -1,0 +1,1074 @@
+/**
+ * @file
+ * Normalize.css is intended to be used as an alternative to CSS resets.
+ *
+ * This file is a slight fork of these original sources:
+ * - normalize.css v2.1.2 | MIT License | git.io/normalize
+ * - normalize.scss v2.1.2 | MIT/GPLv2 License | bit.ly/normalize-with-compass
+ *
+ * It's suggested that you read the normalize.scss file and customise it to meet
+ * your needs, rather then including the file in your project and overriding the
+ * defaults later in your CSS.
+ * @see http://nicolasgallagher.com/about-normalize-css/
+ *
+ * Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
+ *       @see http://snook.ca/archives/html_and_css/no_css_reset/
+ */
+
+
+
+@font-face {
+    font-family: 'dinosaurregular';
+    src: url('fonts/dino/dinosaur-webfont.eot');
+    src: url('fonts/dino/dinosaur-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/dino/dinosaur-webfont.woff') format('woff'),
+         url('fonts/dino/dinosaur-webfont.ttf') format('truetype'),
+         url('fonts/dino/dinosaur-webfont.svg#dinosaurregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('fonts/bebasneue_regular_macroman/BebasNeue-webfont.eot');
+    src: url('fonts/bebasneue_regular_macroman/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue_regular_macroman/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/bebasneue_regular_macroman/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue_regular_macroman/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'kelsonbold';
+    src: url('fonts/kelson_bold_macroman/Kelson_Bold-webfont.eot');
+    src: url('fonts/kelson_bold_macroman/Kelson_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/kelson_bold_macroman/Kelson_Bold-webfont.woff') format('woff'),
+         url('fonts/kelson_bold_macroman/Kelson_Bold-webfont.ttf') format('truetype'),
+         url('fonts/kelson_bold_macroman/Kelson_Bold-webfont.svg#kelsonbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'pacificoregular';
+    src: url('fonts/pacifico/pacifico-webfont.eot');
+    src: url('fonts/pacifico/pacifico-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/pacifico/pacifico-webfont.woff') format('woff'),
+         url('fonts/pacifico/pacifico-webfont.ttf') format('truetype'),
+         url('fonts/pacifico/pacifico-webfont.svg#pacificoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'AniversRegular';
+    src: url('fonts/anivers_regular_macroman/Anivers_Regular-webfont.eot');
+    src: url('fonts/anivers_regular_macroman/Anivers_Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/anivers_regular_macroman/Anivers_Regular-webfont.woff') format('woff'),
+         url('fonts/anivers_regular_macroman/Anivers_Regular-webfont.ttf') format('truetype'),
+         url('fonts/anivers_regular_macroman/Anivers_Regular-webfont.svg#AniversRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+/**
+ * HTML5 display definitions
+ */
+
+/* Correct `block` display not defined in IE 8/9. */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Correct `inline-block` display not defined in IE 8/9. */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Address styling not present in IE 8/9. */
+[hidden] {
+  display: none;
+}
+
+/**
+ * Base
+ *
+ * Instead of relying on the fonts that are available on a user's computer, you
+ * can use web fonts which, like images, are resources downloaded to the user's
+ * browser. Because of the bandwidth and rendering resources required, web fonts
+ * should be used with care.
+ *
+ * Numerous resources for web fonts can be found on Google. Here are a few
+ * websites where you can find Open Source fonts to download:
+ * - http://www.fontsquirrel.com/fontface
+ * - http://www.theleagueofmoveabletype.com
+ *
+ * In order to use these fonts, you will need to convert them into formats
+ * suitable for web fonts. We recommend the free-to-use Font Squirrel's
+ * Font-Face Generator:
+ *   http://www.fontsquirrel.com/fontface/generator
+ *
+ * The following is an example @font-face declaration. This font can then be
+ * used in any ruleset using a property like this:  font-family: Example, serif;
+ */
+
+/*
+@font-face {
+  font-family: 'Example';
+  src: url('../fonts/example.eot');
+  src: url('../fonts/example.eot?iefix') format('eot'),
+    url('../fonts/example.woff') format('woff'),
+    url('../fonts/example.ttf') format('truetype'),
+    url('../fonts/example.svg#webfontOkOndcij') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ */
+html {
+  /*font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;  1 */
+  font-family: 'AniversRegular';
+  /* Delete all but one of the following font-size declarations: */
+
+  /* Use a 12px base font size. 16px x 75% = 12px */
+  /*font-size: 75%;  3 */
+  /* Use a 14px base font size. 16px x .875 = 14px */
+  /*font-size: 87.5%;  3 */
+  /* Use a 16px base font size. */
+  font-size: 100%; /* 3 */
+
+  -ms-text-size-adjust: 100%;     /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+
+  /* Establish a vertical rhythm. */
+  line-height: 1.5em;
+}
+
+/* Address `font-family` inconsistency between `textarea` and other form elements. */
+button,
+input,
+select,
+textarea {
+  /**
+   * The following font family declarations are available on most computers.
+   *
+   * A user's web browser will look at the comma-separated list and will
+   * attempt to use each font in turn until it finds one that is available
+   * on the user's computer. The final "generic" font (sans-serif, serif or
+   * monospace) hints at what type of font to use if the web browser doesn't
+   * find any of the fonts in the list.
+   *
+   * font-family: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+   * font-family: Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+   * font-family: Georgia, "Times New Roman", "DejaVu Serif", serif;
+   *
+   * font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+   * font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+   * font-family: Helvetica, Arial, "Nimbus Sans L", sans-serif;
+   * font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+   *
+   * font-family: "Courier New", "DejaVu Sans Mono", monospace;
+   */
+  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+}
+
+/* Remove default margin. */
+body {
+  margin: 0;
+  padding: 0;
+ 
+  background: url(flowers.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-rendering: optimizelegibility;
+}
+
+/**
+ * Links
+ *
+ * The order of link states are based on Eric Meyer's article:
+ * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
+ */
+a:link {
+  color: #EEEEEE;
+  text-decoration: none;
+}
+a:visited {
+    color: #EEEEEE;
+  text-decoration: none;
+
+}
+a:hover,
+a:focus {
+    color: #EEEEEE;
+  text-decoration: none;
+}
+a:active {
+    color: #EEEEEE;
+  text-decoration: none;
+}
+
+/* Address `outline` inconsistency between Chrome and other browsers. */
+a:focus {
+  outline: thin dotted;
+}
+
+/* Improve readability when focused and also mouse hovered in all browsers. */
+a:active,
+a:hover {
+  outline: 0;
+
+}
+
+/**
+ * Typography
+ *
+ * To achieve a pleasant vertical rhythm, we use Compass' Vertical Rhythm mixins
+ * so that the line height of our base font becomes the basic unit of vertical
+ * measurement. We use multiples of that unit to set the top and bottom margins
+ * for our block level elements and to set the line heights of any fonts.
+ * For more information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
+ */
+
+/* Set 1 unit of vertical rhythm on the top and bottom margin. */
+p,
+pre {
+  margin: 1.5em 0;
+}
+blockquote {
+
+  /* Also indent the quote on both sides. */
+  margin: 1.5em 30px;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  /* Set the font-size and line-height while keeping a proper vertical rhythm. */
+  font-size: 2em;
+  line-height: 1em; /* 3rem / 2em = 1.5em */
+  /* Set 1 unit of vertical rhythm on the top and bottom margins. */
+  margin-top: 0.75em; /* 1.5rem / 2em = .75em */
+  margin-bottom: 0.75em;
+}
+h2 {
+  font-size: 2.7em;
+  line-height: 1.1em; /* 3rem / 1.5em = 2em */
+  margin-top: .4em; /* 1.5rem / 1.5em = 1em */
+  margin-bottom: .4em;
+  font-family: 'dinosaurregular';
+
+}
+
+h2 a{
+    color: #7686FF;
+}
+
+h2:after{
+  content: "";
+  display: block;
+  border-bottom: 1px solid #FFC200;
+}
+h3 {
+  font-size: 2.7em;
+  line-height: 1.28205em; /* 1.5rem / 1.17em = 1.28205em */
+  margin-top: 1.28205em;
+  margin-bottom: 1.28205em;
+  font-family: 'dinosaurregular';
+}
+h4 {
+  font-size: 1em;
+  line-height: 1.5em; /* 1.5rem / 1em = 1.5em */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-family: 'dinosaurregular';
+}
+h5 {
+  font-size: 0.83em;
+  line-height: 1.80723em; /* 1.5rem / 0.83em = 1.80723em */
+  margin-top: 1.80723em;
+  margin-bottom: 1.80723em;
+}
+h6 {
+  font-size: 0.67em;
+  line-height: 2.23881em; /* 1.5rem / 0.67em = 2.23881em */
+  margin-top: 2.23881em;
+  margin-bottom: 2.23881em;
+}
+
+/* Address styling not present in IE 8/9, Safari 5, and Chrome. */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* Address styling not present in Safari 5 and Chrome. */
+dfn {
+  font-style: italic;
+}
+
+/* Address differences between Firefox and other browsers. */
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  border: 1px solid #666;
+  padding-bottom: -1px;
+  margin: 1.5em 0;
+}
+
+/* Address styling not present in IE 8/9. */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* Correct font family set oddly in Safari 5 and Chrome. */
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+  font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* Improve readability of pre-formatted text in all browsers. */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Set consistent quote types. */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* Address inconsistent and variable font size in all browsers. */
+small {
+  font-size: 80%;
+}
+
+/* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Lists
+ */
+dl,
+menu,
+ol,
+ul {
+  /* Address margins set differently in IE 6/7. */
+  margin: 1.5em 0;
+}
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  /* Turn off margins on nested lists. */
+  margin: 0;
+}
+dd {
+  margin: 0 0 0 30px; /* LTR */
+}
+
+/* Address paddings set differently in IE 6/7. */
+menu,
+ol,
+ul {
+  padding: 0 0 0 30px; /* LTR */
+}
+
+/* Correct list images handled incorrectly in IE 7. */
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/**
+ * Embedded content and figures
+ *
+ * @todo Look into adding responsive embedded video.
+ */
+img {
+  /* Remove border when inside `a` element in IE 8/9. */
+  border: 0;
+  /* Improve image quality when scaled in IE 7. */
+  -ms-interpolation-mode: bicubic;
+
+  /* Suppress the space beneath the baseline */
+  /* vertical-align: bottom; */
+
+  /* Responsive images */
+  max-width: 100%;
+  height: auto;
+  /* Correct IE 8 not scaling image height when resized. */
+  width: auto;
+}
+
+/* Correct overflow displayed oddly in IE 9. */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Address margin not present in IE 8/9 and Safari 5. */
+figure {
+  margin: 0;
+}
+
+/**
+ * Forms
+ */
+
+/* Correct margin displayed oddly in IE 6/7. */
+form {
+  margin: 0;
+}
+
+/* Define consistent border, margin, and padding. */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.5em 0.625em 1em;
+}
+
+.search-advances{
+  background-color: rgba}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+  *margin-left: -7px; /* 3 */ /* LTR */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 4. Improve appearance and consistency with IE 6/7.
+ * 5. Keep form elements constrained in their containers.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 2 */
+  margin: 0; /* 3 */
+  vertical-align: baseline; /* 4 */
+  vertical-align: middle; /* 4 */
+  max-width: 100%; /* 5 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; /* 5 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+  *overflow: visible; /* 4 */
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #EEEEEE;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #EEEEEE;
+  box-shadow:inset 0px 1px 0px 0px #EEEEEE;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+  background-color:#ededed;
+  -webkit-border-top-left-radius:6px;
+  -moz-border-radius-topleft:6px;
+  border-top-left-radius:6px;
+  -webkit-border-top-right-radius:6px;
+  -moz-border-radius-topright:6px;
+  border-top-right-radius:6px;
+  -webkit-border-bottom-right-radius:6px;
+  -moz-border-radius-bottomright:6px;
+  border-bottom-right-radius:6px;
+  -webkit-border-bottom-left-radius:6px;
+  -moz-border-radius-bottomleft:6px;
+  border-bottom-left-radius:6px;
+  text-indent:0;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#000;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  height:35px;
+  line-height:50px;
+  width:100px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #EEEEEE;
+}
+button:hover,
+html input[type="button"]:hover, /* 1 */
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+  background-color:#dfdfdf;
+}
+
+
+button:active,
+html input[type="button"]:active, /* 1 */
+input[type="reset"]:active,
+input[type="submit"]:active {
+  position:relative;
+  top:1px;
+}
+
+.button:hover, button:hover, input[type="button"]:hover, input[type="submit"]:hover, .button:focus, button:focus, input[type="button"]:focus, input[type="submit"]:focus {
+    background: -moz-linear-gradient(center top , #FEFEFE, #DADADA) repeat scroll 0 0 transparent;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+}
+.button:active, button:active, input[type="button"]:active, input[type="submit"]:active {
+    background: -moz-linear-gradient(center top , #E7E7E7, #FEFEFE) repeat scroll 0 0 transparent;
+    border-color: #B8B8B8 #E2E2E2 #E2E2E2 #B8B8B8;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset, -1px -1px 0 rgba(255, 255, 255, 0.25) inset;
+}
+.button:focus, button:focus, input[type="button"]:focus, input[type="submit"]:focus {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
+    outline: medium none;
+}
+
+input, textarea, .textarea-clone {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CDCDCD;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    color: #666666;
+    height: 20px;
+    padding: 4px 10px;
+    transition: border-color 0.1s linear 0s;
+    width: 260px;
+}
+
+input, textarea, .textarea-clone {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CDCDCD;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    color: #666666;
+    height: 20px;
+    padding: 4px 10px;
+    transition: border-color 0.1s linear 0s;
+    width: 260px;
+}
+
+input[type="email"], input[type="text"], input[type="password"] {
+    background: none repeat scroll 0 0 rgba(40, 40, 40, 0.9);
+    border: 1px solid #666666;
+    color: #CCCCCC;
+    font-size: 1em;
+    transition: all 0.1s ease-out 0s;
+}
+label.placeholder-label + input {
+    margin-top: 15px;
+}
+
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+  *height: 13px; /* 3 */
+  *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto; /* 1 */
+  vertical-align: top; /* 2 */
+}
+
+/* Drupal-style form labels. */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/*Strave Styles*/
+
+/* Line 1 */
+button, input, select, textarea
+{
+  font-size: 100%;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+/* Line 1 */
+button, input
+{
+  line-height: normal;
+}
+
+/* Line 1 */
+body, button, input, select, textarea
+{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* Line 1 */
+input, textarea, .textarea-clone
+{
+  border-top-width: 1px;
+  border-right-width-value: 1px;
+  border-bottom-width: 1px;
+  border-left-width-value: 1px;
+  border-top-style: solid;
+  border-right-style-value: solid;
+  border-bottom-style: solid;
+  border-left-style-value: solid;
+  border-top-color: #cdcdcd;
+  border-right-color-value: #cdcdcd;
+  border-bottom-color: #cdcdcd;
+  border-left-color-value: #cdcdcd;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  color: #666666;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  width: 260px;
+  transition-property: border-color;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  background-color: #ffffff;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0px 0px;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+  height: 40px;
+}
+
+/* Line 1 */
+input:focus, textarea:focus, .textarea-clone:focus
+{
+  border-top-color: #007fb6;
+  border-right-color-value: #007fb6;
+  border-bottom-color: #007fb6;
+  border-left-color-value: #007fb6;
+  outline-width: medium;
+  outline-style: none;
+}
+
+/* Line 1 */
+label.placeholder-label + input
+{
+  margin-top: 15px;
+}
+
+/* Line 1 */
+ input[type="email"],  input[type="text"],  input[type="password"]
+{
+  transition-property: all;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+  border-top-width: 1px;
+  border-right-width-value: 1px;
+  border-bottom-width: 1px;
+  border-left-width-value: 1px;
+  border-top-style: solid;
+  border-right-style-value: solid;
+  border-bottom-style: solid;
+  border-left-style-value: solid;
+  border-top-color: #666666;
+  border-right-color-value: #666666;
+  border-bottom-color: #666666;
+  border-left-color-value: #666666;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  color: #cccccc;
+  font-size: 1em;
+}
+
+/* Line 1 */
+input[type="email"]:focus,  input[type="text"]:focus,input[type="password"]:focus
+{
+  box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.8);
+  border-top-width: 1px;
+  border-right-width-value: 1px;
+  border-bottom-width: 1px;
+  border-left-width-value: 1px;
+  border-top-style: solid;
+  border-right-style-value: solid;
+  border-bottom-style: solid;
+  border-left-style-value: solid;
+  border-top-color: rgba(0, 0, 0, 0.5);
+  border-right-color-value: rgba(0, 0, 0, 0.5);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-left-color-value: rgba(0, 0, 0, 0.5);
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.9);
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+}
+
+
+
+/**
+ * Tables
+ */
+table {
+  /* Remove most spacing between table cells. */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* Prevent cramped-looking tables */
+  /* width: 100%; */
+  /* Add vertical rhythm margins. */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+h1{
+  color: #EEEEEE;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-family: 'kelsonbold';
+  font-weight: normal;
+  margin-top: 15px;
+}
+
+#main-menu, h1, .header__site-name, .page__title, article.node {
+
+  padding: 5px 15px;
+}
+
+/** Navigation **/
+#navigation {
+ /* background: rgba(200, 54, 54, 0.5); */
+}
+
+#site-name{
+   border-top: 1px solid #EEEEEE;
+    height: 100px;
+    left: -5px;
+    position: fixed;
+    top: 0px;
+    width: 300px;
+}
+
+.sidebars {
+  width: 350px;
+  background-color: red;
+}
+
+#header-logo {
+  text-align: left;
+  z-index: 1;
+}
+
+#user-login-form{
+  padding:;
+}
+#main-menu {
+  
+    position: fixed;
+    top: 0px;
+    left: 280px;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+
+    border-top: 1px solid #EEEEEE;
+    height: 100px;
+    color: #EEEEEE;
+    width: 100%;
+    display: block;
+}
+.menu-2 {
+ color: black;
+
+
+}
+.search-form{
+   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+}
+#secondary-menu ul, #main-menu ul {
+    display: block;
+    height: 22px;
+    margin: 0 auto;
+    padding: 8px;
+    min-width: 75%;
+    width: 100%;
+    text-align: left;
+
+}
+ 
+
+#secondary-menu ul li, #main-menu ul li {
+    height: 30px;
+    padding: 7px 15px;
+    display: inline-block;
+
+
+}
+/*
+ #main-menu li + li {
+    background:url('ding.png') no-repeat top left;
+    padding-left: 10px
+}*/
+
+ul.inline li {
+    display: inline;
+    list-style-type: none;
+    text-align: center;
+}
+
+#secondary-menu ul li a, #main-menu ul li a {
+    color: #EEEEEE;
+    text-decoration: none;
+    transition: color 0.5s ease 0s;
+    text-align: left;
+    font-family: 'dinosaurregular';
+    font-size: 2em;
+    line-height: 3;
+    padding-right: 20px;
+    transition: all 0.1s ease-out 0s;
+
+}
+
+#secondary-menu ul li a:hover, #main-menu ul li a:hover , #secondary-menu ul li a:focus, #main-menu ul li a:focus{
+    transition: all 0.1s ease-out 0s;
+    transition: color 1s ease 0s;
+    color: red;
+    box-shadow: 1px 1px 5px white;
+
+
+}
+
+
+#secondary-menu ul li a:first-child, #main-menu ul li a:first-child {
+
+    padding-left: 20px;
+
+}
+
+/* Active Menu Item */
+li a.active {
+  color: #000;
+}
+
+#header {
+  text-align: left;
+  border-bottom: 1px solid white;
+
+}
+
+
+/*Main Content*/
+
+#main-content{
+  margin-left: 250px;
+}
+
+ #main {
+
+  /*margin-left: -115px;*/
+
+ }
+article.node{
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+  color: #EEEEEE;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+
+}
+
+#block-user-login
+
+{
+
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+  color: #EEEEEE;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  padding: 15px;
+
+}
+#main {
+  margin-top: 100px;
+}
