@@ -1,0 +1,6 @@
+name = MFT Custom GEO 
+description = Not sure what it is going to be yet.
+core = 7.x
+stylesheets[all][] = behaviors/mappingdrupal_ol_extensions_geolocate.css
+scripts[] = behaviors/mappingdrupal_ol_extensions_geo locate.js
+files [] = behaviors/mappingdrupal_ol_extensions_geolocate.inc

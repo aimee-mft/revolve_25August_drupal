@@ -1,8 +1,0 @@
-body {
-    /* background color + default image (in-case random-bg.js fails) */
-    background: #003c00 url('../images/bg-body/bg1.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
